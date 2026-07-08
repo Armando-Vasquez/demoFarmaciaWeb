@@ -47,7 +47,7 @@
 
   getCurrentUser() { return localStorage.getItem('demo_usuario'); },
 
-  login(usuario, contrasena) {
+/*   login(usuario, contrasena) {
     const usuarios = JSON.parse(localStorage.getItem('demo_usuarios') || '[]');
     const user = usuarios.find(u => u.usuario === usuario && u.contrasena === contrasena);
     if (user) {
@@ -62,7 +62,7 @@
     localStorage.removeItem('demo_autenticado');
     localStorage.removeItem('demo_usuario');
     window.location.href = 'login.html';
-  },
+  }, */
 
   getCategorias() { return JSON.parse(localStorage.getItem('demo_categorias') || '[]'); },
   getCategoria(cod) { return this.getCategorias().find(c => c.cod_categoria === cod) || null; },
@@ -148,7 +148,7 @@
     return usuarios.find(u => u.usuario === usuario) || null;
   },
 
-  crearUsuario(data) {
+/*   crearUsuario(data) {
     const usuarios = JSON.parse(localStorage.getItem('demo_usuarios') || '[]');
     if (usuarios.find(u => u.usuario === data.usuario)) return { success: false, mensaje: 'El usuario ya existe' };
     usuarios.push(data);
@@ -163,7 +163,7 @@
     usuarios[idx].contrasena = contrasena_nueva;
     localStorage.setItem('demo_usuarios', JSON.stringify(usuarios));
     return { success: true };
-  },
+  }, */
 
   showToast(icon, title, text) {
     Swal.fire({ icon, title, text, showConfirmButton: false, timer: 3000, timerProgressBar: true, toast: true, position: 'top-end', customClass: { popup: 'colored-toast' } });
