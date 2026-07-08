@@ -32,7 +32,7 @@
       { cod_producto: 'PD006', cod_proveedor: 'PR003', cod_categoria: 'CT001', nombre_producto: 'Amoxicilina 500mg', desc_prod: 'Antibi\xF3tico de amplio espectro', cantidad_prod: 0, precio: 55.00, estado: 0 }
     ];
 
-    localStorage.setItem('demo_usuarios', JSON.stringify(usuarios));
+    /* localStorage.setItem('demo_usuarios', JSON.stringify(usuarios)); */
     localStorage.setItem('demo_categorias', JSON.stringify(categorias));
     localStorage.setItem('demo_productos', JSON.stringify(productos));
     localStorage.setItem('demo_proveedores', JSON.stringify(proveedores));
