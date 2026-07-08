@@ -6,9 +6,9 @@
   },
 
   seedData() {
-    const usuarios = [
+    /* const usuarios = [
       { usuario: 'admin', contrasena: 'admin123' }
-    ];
+    ]; */
 
     const categorias = [
       { cod_categoria: 'CT001', nombre_categorias: 'Medicamentos', desc_categ: 'Medicamentos de venta libre y recetados' },
@@ -39,14 +39,14 @@
     localStorage.setItem('demo_initialized', 'true');
   },
 
-  isAuthenticated() { return localStorage.getItem('demo_autenticado') === 'true'; },
+/*   isAuthenticated() { return localStorage.getItem('demo_autenticado') === 'true'; },
 
   requireAuth() { if (!this.isAuthenticated()) { window.location.href = 'login.html'; } },
 
   redirectIfAuth() { if (this.isAuthenticated()) { window.location.href = 'dashboard.html'; } },
 
   getCurrentUser() { return localStorage.getItem('demo_usuario'); },
-
+ */
 /*   login(usuario, contrasena) {
     const usuarios = JSON.parse(localStorage.getItem('demo_usuarios') || '[]');
     const user = usuarios.find(u => u.usuario === usuario && u.contrasena === contrasena);
@@ -143,11 +143,11 @@
     return { success: true };
   },
 
-  getUsuario(usuario) {
+/*   getUsuario(usuario) {
     const usuarios = JSON.parse(localStorage.getItem('demo_usuarios') || '[]');
     return usuarios.find(u => u.usuario === usuario) || null;
   },
-
+ */
 /*   crearUsuario(data) {
     const usuarios = JSON.parse(localStorage.getItem('demo_usuarios') || '[]');
     if (usuarios.find(u => u.usuario === data.usuario)) return { success: false, mensaje: 'El usuario ya existe' };
