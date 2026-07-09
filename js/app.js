@@ -6,10 +6,6 @@
   },
 
   seedData() {
-    const usuarios = [
-      { usuario: 'admin', contrasena: 'admin123' }
-    ];
-
     const categorias = [
       { cod_categoria: 'CT001', nombre_categorias: 'Medicamentos', desc_categ: 'Medicamentos de venta libre y recetados' },
       { cod_categoria: 'CT002', nombre_categorias: 'Cuidado Personal', desc_categ: 'Productos de higiene y cuidado personal' },
@@ -32,36 +28,10 @@
       { cod_producto: 'PD006', cod_proveedor: 'PR003', cod_categoria: 'CT001', nombre_producto: 'Amoxicilina 500mg', desc_prod: 'Antibi\xF3tico de amplio espectro', cantidad_prod: 0, precio: 55.00, estado: 0 }
     ];
 
-    localStorage.setItem('demo_usuarios', JSON.stringify(usuarios));
     localStorage.setItem('demo_categorias', JSON.stringify(categorias));
     localStorage.setItem('demo_productos', JSON.stringify(productos));
     localStorage.setItem('demo_proveedores', JSON.stringify(proveedores));
     localStorage.setItem('demo_initialized', 'true');
-  },
-
-  isAuthenticated() { return localStorage.getItem('demo_autenticado') === 'true'; },
-
-  requireAuth() { if (!this.isAuthenticated()) { window.location.href = 'login.html'; } },
-
-  redirectIfAuth() { if (this.isAuthenticated()) { window.location.href = 'dashboard.html'; } },
-
-  getCurrentUser() { return localStorage.getItem('demo_usuario'); },
-
-  login(usuario, contrasena) {
-    const usuarios = JSON.parse(localStorage.getItem('demo_usuarios') || '[]');
-    const user = usuarios.find(u => u.usuario === usuario && u.contrasena === contrasena);
-    if (user) {
-      localStorage.setItem('demo_autenticado', 'true');
-      localStorage.setItem('demo_usuario', usuario);
-      return { success: true };
-    }
-    return { success: false, mensaje: 'Usuario o contrase\xF1a incorrectos' };
-  },
-
-  logout() {
-    localStorage.removeItem('demo_autenticado');
-    localStorage.removeItem('demo_usuario');
-    window.location.href = 'login.html';
   },
 
   getCategorias() { return JSON.parse(localStorage.getItem('demo_categorias') || '[]'); },
@@ -140,28 +110,6 @@
     if (idx === -1) return { success: false, mensaje: 'No encontrado' };
     provs[idx] = { ...provs[idx], ...data };
     localStorage.setItem('demo_proveedores', JSON.stringify(provs));
-    return { success: true };
-  },
-
-  getUsuario(usuario) {
-    const usuarios = JSON.parse(localStorage.getItem('demo_usuarios') || '[]');
-    return usuarios.find(u => u.usuario === usuario) || null;
-  },
-
-  crearUsuario(data) {
-    const usuarios = JSON.parse(localStorage.getItem('demo_usuarios') || '[]');
-    if (usuarios.find(u => u.usuario === data.usuario)) return { success: false, mensaje: 'El usuario ya existe' };
-    usuarios.push(data);
-    localStorage.setItem('demo_usuarios', JSON.stringify(usuarios));
-    return { success: true };
-  },
-
-  restablecerContrasena(usuario, contrasena_nueva) {
-    const usuarios = JSON.parse(localStorage.getItem('demo_usuarios') || '[]');
-    const idx = usuarios.findIndex(u => u.usuario === usuario);
-    if (idx === -1) return { success: false, mensaje: 'Usuario no encontrado' };
-    usuarios[idx].contrasena = contrasena_nueva;
-    localStorage.setItem('demo_usuarios', JSON.stringify(usuarios));
     return { success: true };
   },
 
