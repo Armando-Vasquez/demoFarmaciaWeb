@@ -48,7 +48,7 @@
                             </div>
                         </form>
                         <hr>
-                        <div class="text-center">
+<!--                         <div class="text-center">
                             <p class="mb-2">
                                 <a href="restablecer.html" class="text-decoration-none">
                                     <i class="bi bi-key-fill me-1"></i>¿Olvidaste tu contraseña?
@@ -60,7 +60,7 @@
                                     <i class="bi bi-person-plus-fill me-1"></i>Regístrate aquí
                                 </a>
                             </p>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
             const result = DemoApp.login(usuario, contrasena);
             if (result.success) {
                 DemoApp.showToast('success', '¡Bienvenido!', 'Has iniciado sesión correctamente');
-                setTimeout(() => { window.location.href = 'dashboard.html'; }, 1000);
+                setTimeout(() => { window.location.href = 'index.html'; }, 1000);
             } else {
                 DemoApp.showAlert('error', '¡Error!', result.mensaje);
             }
